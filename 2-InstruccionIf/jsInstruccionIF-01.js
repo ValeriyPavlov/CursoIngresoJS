@@ -1,6 +1,18 @@
+/*
+Pavlov Valeriy, DIV Z
+Ejercicio IF 01
+*/
+
 function mostrar()
 {
-	//tomo la edad  
-	alert("ok");
+	var edad;
 
-}//FIN DE LA FUNCIÓN
+	edad = document.getElementById("txtIdEdad").value;
+	edad = parseInt(edad);
+
+	if (edad == 15)
+	{
+	alert("niña bonita");
+	}
+
+}

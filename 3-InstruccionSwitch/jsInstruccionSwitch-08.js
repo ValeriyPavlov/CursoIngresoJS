@@ -1,6 +1,26 @@
+/*
+Pavlov Valeriy, DIV Z
+Ejercicio SWITCH 08
+*/
+
 function mostrar()
 {
-	var destinoIngresado =txtIdDestino.value;
-	alert(destinoIngresado);
+	var destinoIngresado;
+	var mensaje;
 
-}//FIN DE LA FUNCIÓN
+	destinoIngresado = document.getElementById("txtIdDestino").value;
+
+	switch (destinoIngresado)
+	{
+		case "Bariloche":
+		case "Ushuaia":
+			mensaje = "FRIO";
+			break;
+		case "Cataratas":
+		case "Mar del plata":
+			mensaje = "CALOR";
+			break;
+	}
+
+	alert(mensaje);
+}

@@ -1,6 +1,11 @@
-/*En esta oportunidad el juego evaluará tus
- aptitudes a partir de la cantidad de intentos, 
- por lo cual se informará lo siguiente:
+/*
+Pavlov Valeriy DIV Z
+TP 6
+
+
+En esta oportunidad el juego evaluará tus
+aptitudes a partir de la cantidad de intentos, 
+por lo cual se informará lo siguiente:
 1° intento: “usted es un Psíquico”.
 2° intento: “excelente percepción”.
 3° intento: “Esto es suerte”.

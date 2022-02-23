@@ -1,7 +1,21 @@
+/*
+Pavlov Valeriy, DIV Z
+Ejercicio IF 04
+*/
+
 function mostrar()
 {
-	//tomo la edad  
-	alert("ok");
+	var edad;
 
+	edad = document.getElementById("txtIdEdad").value;
+	edad = parseInt(edad);
 
-}//FIN DE LA FUNCIÓN
+	if (edad >= 13 && edad < 18)
+	{
+		alert("La persona es adolescente.");
+	}
+	else
+	{
+		alert("La persona no es adolescente.");
+	}
+}
