@@ -36,7 +36,7 @@ function mostrar()
 Pavlov Valeriy, DIV Z
 Ejercicio While 07 v1. abcdefghijklm
 
-*/
+
 
 function mostrar()
 {
@@ -249,4 +249,291 @@ function mostrar()
 
 
 	alert("La altura promedio es de: " + promedioAltura + " / Cantidad de estudiantes de sexo femenino: " + contadorFemenino + " / Cantidad de estudiantes de sexo masculino: " + contadorMasculino + " / Cantidad de estudiantes de sexo no-binario: " + contadorNoBi + " / Estudiantes aprobados: " + aprobados + " / Cantidad de mujeres que superen los 190cm: " + contadorMujeresAltas + " / " + mayoria + " / La persona mas alta es: " + nombrePersonaAlta + " / La primer persona con fiebre tiene: " + primeroConFiebre + " años. / La primer mujer aprobada es: " + primeraMujerAprobada + " / La altura promedio de los aprobados es de: " + alturaPromedioAprobados + "cm. / El nombre del primer hombre desaprobado, que mide menos de 160cm es: " + nombreDesaprobado + " / El procentaje de aprobados es de " + porcentajeAprobados + "%.  / El primer hombre alto es: " + nombreHombreAlto + " y su nota es un " + notaHombreAlto + " / Mayores a 50 con fiebre sobre total: " + porcentajeConFiebre + "% y sobre personas con fiebre: " + porcentajeMayoresFiebre + "%.");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+Pavlov Valeriy DIV Z
+Ejercicio SABADOS While 07 v2 A,B,C,D,E,F,G,H,I,J,K,L.
+
+*/
+
+function mostrar()
+{
+	var altura;
+	var edad;
+	var temperatura;
+	var sexo;
+	var nota;
+	var nombre;
+	var respuesta;
+	var contadorMujeres;
+	var contadorHombres;
+	var contadorNoBinario;
+	var contadorConFiebre;
+	var contadorSinFiebre;
+	var acumuladorEdadesMujeres;
+	var acumuladorEdadesHombres;
+	var acumuladorEdadesNoBi;
+	var promedioEdadMujeres;
+	var promedioEdadHombres;
+	var promedioEdadNoBi;
+	var nombrePrimerAprobado;
+	var banderaPrimerAprobado;
+	var maximoTemperatura;
+	var banderaTemperatura;
+	var nombreMaximaTemperatura;
+	var edadMaximaTemperatura;
+	var edadNoBinarioMasJoven;
+	var banderaNoBinario;
+	var alturaNoBinarioJoven;
+	var notaNoBinarioJoven;
+	var alturaMujerMasAlta;
+	var banderaMujerMasAlta;
+	var nombreMujerMasAlta;
+	var procentajeDesaprobados;
+	var contadorDesaprobados;
+	var contadorAprobados;
+	var banderaHombreBajo;
+	var nombreHombreBajoDesaprobado;
+
+	respuesta = true;
+	contadorMujeres = 0;
+	contadorHombres = 0;
+	contadorNoBinario = 0;
+	contadorConFiebre = 0;
+	contadorSinFiebre = 0;
+	acumuladorEdadesMujeres = 0;
+	acumuladorEdadesHombres = 0;
+	acumuladorEdadesNoBi = 0;
+	banderaPrimerAprobado = 0;
+	banderaTemperatura = 0;
+	banderaNoBinario = 0;
+	banderaMujerMasAlta = 0;
+	contadorDesaprobados = 0;
+	contadorAprobados = 0;
+	banderaHombreBajo = 0;
+
+
+	while(respuesta == true)
+	{
+		//Toma y validacion de datos, donde corresponda
+		altura = prompt("Ingrese altura del estudiante en centimetros:");
+		altura = parseInt(altura);
+		while(altura < 0 || altura > 250)
+		{
+			altura = prompt("Error, reingrese altura del estudiante en centimetros (entre 0 y 250):");
+			altura = parseInt(altura);
+		}
+		edad = prompt("Ingrese la edad del estudiante:");
+		edad = parseInt(edad);
+		while(edad < 18 || edad > 120)
+		{
+			edad = prompt("Error, reingrese la edad del estudiante, entre 18 y 120:");
+			edad = parseInt(edad);
+		}
+		temperatura = prompt("Ingrese la temperatura del estudiante:");
+		temperatura = parseInt(temperatura);
+		while(temperatura < 25 || temperatura > 45)
+		{
+			temperatura = prompt("Error, reingrese la temperatura (entre 25 y 45):");
+			temperatura = parseInt(temperatura);
+		}
+		sexo = prompt("Ingrese el sexo del estudiante:");
+		while(sexo != "f" && sexo != "m" && sexo != "nb")
+		{
+			sexo = prompt("Error, reingrese el sexo del estudiante mediante (f / m / nb):");
+		}
+		nota = prompt("Ingrese la nota del estudiante:");
+		nota = parseInt(nota);
+		while(nota < 1 || nota > 10)
+		{
+			nota = prompt("Error, reingrese una nota valida (entre 1 y 10)");
+			nota = parseInt(nota);
+		}
+		nombre = prompt("Ingrese el nombre del estudiante:");
+
+		//Contadores y acumuladres de edad por sexo
+		switch(sexo)
+		{
+			case "f":
+				contadorMujeres++;
+				acumuladorEdadesMujeres = acumuladorEdadesMujeres + edad;
+				if(nota > 5)
+				{
+					//Nombre de la mujer aprobada mas alta
+					if(alturaMujerMasAlta < altura || banderaMujerMasAlta == 0)
+					{
+						alturaMujerMasAlta = altura;
+						nombreMujerMasAlta = nombre;
+						banderaMujerMasAlta = 1;
+					}
+				}
+			break;
+			case "m":
+				contadorHombres++;
+				acumuladorEdadesHombres = acumuladorEdadesHombres + edad;
+				//Hombre desaprobado y de menos de 160cm de altura
+				if(banderaHombreBajo == 0 && altura < 160 && nota < 4)
+				{
+					nombreHombreBajoDesaprobado = nombre;
+					banderaHombreBajo = 1;
+				}
+			break;
+			default:
+				contadorNoBinario++;
+				acumuladorEdadesNoBi = acumuladorEdadesNoBi + edad;
+				//Nota y altura de la persona No Binaria mas joven
+				if(edadNoBinarioMasJoven > edad || banderaNoBinario == 0)
+				{
+					edadNoBinarioMasJoven = edad;
+					alturaNoBinarioJoven = altura;
+					notaNoBinarioJoven = nota;
+					banderaNoBinario = 1;
+				}
+			break;
+		}
+
+		//Contador estudiantes con y sin fiebre
+		if(temperatura > 37)
+		{
+			contadorConFiebre++;
+		}
+		else
+		{
+			contadorSinFiebre++;
+		}
+
+		//Nombre del primer aprobado
+		if(banderaPrimerAprobado == 0 && nota > 3)
+		{
+			nombrePrimerAprobado = nombre;
+			banderaPrimerAprobado = 1;
+		}
+
+		//Temperatura maxima
+		if(maximoTemperatura < temperatura || banderaTemperatura == 0)
+		{
+			maximoTemperatura = temperatura;
+			nombreMaximaTemperatura = nombre;
+			edadMaximaTemperatura = edad;
+			banderaTemperatura = 1;
+		}
+
+		//Contadores Aprobados/Desaprobados
+		if(nota < 4)
+		{
+			contadorDesaprobados++;
+		}
+		else
+		{
+			contadorAprobados++;
+		}
+
+		//Ingresar otro estudiante
+		respuesta = confirm("Desea continuar ingresando alumnos?");
+	}
+
+	//Promedios por sexo
+	promedioEdadMujeres = acumuladorEdadesMujeres / contadorMujeres;
+	promedioEdadHombres = acumuladorEdadesHombres / contadorHombres;
+	promedioEdadNoBi = acumuladorEdadesNoBi / contadorNoBinario;
+
+	//Porcentaje Desaprobados
+	procentajeDesaprobados = (contadorDesaprobados * 100) / (contadorDesaprobados + contadorAprobados);
+
+
+	//Alertas
+	document.write("Cantidad de mujeres estudiantes: " + contadorMujeres + "<br>");
+
+	document.write("Hay " + contadorConFiebre + " estudiantes con fiebre y " + contadorSinFiebre + " estudiantes sin fiebre. <br>");
+
+	if(contadorMujeres != 0)
+	{
+		document.write("El promedio de edad para mujeres es de: " + promedioEdadMujeres + "<br>");
+	}
+	else
+	{
+		document.write("No se ingresaron mujeres. <br>");
+	}
+
+	if(contadorHombres != 0)
+	{
+		document.write("El primedio de edad para hombres es de: " + promedioEdadHombres + "<br>"); 
+	}
+	else
+	{
+		document.write("No se ingresaron hombres. <br>");
+	}
+
+	if(contadorNoBinario != 0)
+	{
+		document.write("El promedio de edad de para no binarios es de: " + promedioEdadNoBi + "<br>");
+	}
+	else
+	{
+		document.write("No se ingresaron estudiantes No Binarios. <br>")
+	}
+
+	if(contadorAprobados != 0)
+	{
+		document.write("El nombre del primer aprobado es: " + nombrePrimerAprobado + "<br>");
+	}
+	else
+	{
+		document.write("No hay aprobados. <br>");
+	}
+
+	document.write("El estudiante con la maxima temperatura es: " + nombreMaximaTemperatura + " y su edad es: " + edadMaximaTemperatura + " años. <br>");
+
+	if(banderaNoBinario == 1)
+	{
+		document.write("La altura del No Binario mas joven es de: " + alturaNoBinarioJoven + "cm y su nota es un: " + notaNoBinarioJoven + "<br>");
+	}
+	else
+	{
+		document.write("No se ingresaron personas No Binarias. <br>");
+	}
+
+	if(banderaMujerMasAlta == 1)
+	{
+		document.write("La mujer aprobada mas alta es: " + nombreMujerMasAlta + "<br>");
+	}
+	else
+	{
+		document.write("No se ingreso ninguna mujer alta aprobada. <br>");
+	}
+
+	document.write("El porcentaje de desaprobados sobre el total es de: " + procentajeDesaprobados + "%. <br>");
+
+	if(banderaHombreBajo == 1)
+	{
+		document.write("El nombre del primer hombre que mide menos de 160cm desaprobado es: " + nombreHombreBajoDesaprobado);
+	}
+	else
+	{
+		document.write("No se ingreso ningun hombre que mida menos de 160cm y que este desaprobado. <br>");
+	}
 }
